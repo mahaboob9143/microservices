@@ -1,0 +1,9 @@
+package com.cts;
+
+public interface ConnectionInterface {
+	
+	public String loadData() {
+		
+	}
+
+}

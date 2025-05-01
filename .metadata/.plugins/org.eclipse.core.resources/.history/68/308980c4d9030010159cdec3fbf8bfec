@@ -1,0 +1,13 @@
+package com.cts;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "MICROSERVICE-C")
+public interface ConnectionInterface {
+	@GetMapping("/microservice-c")
+	public String loadData() {
+		
+	}
+
+}

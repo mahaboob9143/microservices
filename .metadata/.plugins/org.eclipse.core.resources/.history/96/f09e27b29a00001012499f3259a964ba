@@ -1,0 +1,32 @@
+package com.cts;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+
+@RestController
+public class MicroserviceBController {
+	@Value("${spring.application.name}")
+	private String name;
+	@Value("${server.port}")
+	private int port;
+	@Value("${company.name} ${company.location}")
+	private String address;
+	
+	@GetMapping("/service-b")
+	public String getServiceA() {
+		return "Hello i am from "+name+" "+port + " "+address;
+	}
+	@GetMapping("/service-b/fetch")
+	public String getService() {
+		//restTemplate - makes a call to microservice-c should get the response
+	
+		RestTemplate restTemplate=new RestTemplate();
+		String response=restTemplate.getForObject("http://localhost:9292/service-c", String.class);
+		
+		return "service-b made a call to microservice-c the response is "+response;
+	}
+
+}

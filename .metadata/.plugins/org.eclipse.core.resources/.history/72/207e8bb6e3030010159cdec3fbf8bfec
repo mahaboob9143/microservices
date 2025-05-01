@@ -1,0 +1,8 @@
+spring.application.name=microservice-b
+server.port=0
+
+company.name=Cognizant
+company.location=Coimbatore
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true

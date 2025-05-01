@@ -1,0 +1,10 @@
+package com.cts;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(url = "http://MICROSERVICE-2",name="MICROSERVICE-B")
+public interface OpenFeighnInterface {
+		@GetMapping("/service-b")
+		public String getData();
+}

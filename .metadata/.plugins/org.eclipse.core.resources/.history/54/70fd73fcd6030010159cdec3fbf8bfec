@@ -1,0 +1,8 @@
+package com.cts;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient
+public interface OpenFeighnInterface {
+		public String getData();
+}

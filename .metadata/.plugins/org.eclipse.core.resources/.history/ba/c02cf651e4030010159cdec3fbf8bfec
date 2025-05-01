@@ -1,0 +1,16 @@
+spring:
+  cloud:
+   gateway:
+     routes:
+       - id: microservice-a
+         uri: lb://MICROSERVICE-A
+         predicates:
+           - Path=/service-a/**	   
+#       - id: SERVICE-B
+#         uri: lb://SERVICE-B
+#         predicates:
+#           - Path=/serviceb/api/**
+#       - id: SERVICE-C
+#         uri: lb://SERVICE-C
+#         predicates:
+#           - Path=/servicec/api/**

@@ -1,0 +1,18 @@
+package com.cts;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class MicroserviceAController {
+	
+	private String name;
+	
+	@GetMapping("/service-a")
+	public String getServiceA() {
+		return "Hello i am from "+name;
+	}
+	
+
+}

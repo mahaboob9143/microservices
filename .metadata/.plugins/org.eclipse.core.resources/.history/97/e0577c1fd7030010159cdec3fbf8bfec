@@ -1,0 +1,10 @@
+package com.cts;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient
+public interface OpenFeighnInterface {
+		@GetMapping
+		public String getData();
+}

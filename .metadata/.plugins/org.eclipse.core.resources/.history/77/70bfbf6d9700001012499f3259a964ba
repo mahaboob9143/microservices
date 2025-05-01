@@ -1,0 +1,32 @@
+package com.cts;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+
+@RestController
+public class MicroserviceAController {
+	@Value("${spring.application.name}")
+	private String name;
+	@Value("${server.port}")
+	private int port;
+	@Value("${company.name} ${company.location}")
+	private String address;
+	
+	@GetMapping("/service-a")
+	public String getServiceA() {
+		return "Hello i am from "+name+" "+port + " "+address;
+	}
+	@GetMapping("/service-a/find")
+	public String getMethodName() {
+		// microservice a should talk to microservice - b
+		// get response microservice - b
+		RestTemplate restTemplate=new RestTemplate();
+		restTemplate.getForObject("http://localhost:9191/service-b", null)
+		return null;
+	}
+	
+
+}
